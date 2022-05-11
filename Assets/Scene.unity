@@ -559,6 +559,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 08da0146c056646cdbf103f396b1f0b0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3dbb3ba6da7ac45448715a098d4aee8b, type: 2}
+    - target: {fileID: 9500000, guid: 08da0146c056646cdbf103f396b1f0b0, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 08da0146c056646cdbf103f396b1f0b0, type: 3}
       propertyPath: m_CastShadows
       value: 1
@@ -885,13 +893,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459885086}
-  m_LocalRotation: {x: 0, y: 0, z: -0.53729963, w: 0.8433914}
-  m_LocalPosition: {x: 2.1, y: 1.15, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.2874133, w: 0.9578067}
+  m_LocalPosition: {x: 3.95, y: -0.56, z: 0}
   m_LocalScale: {x: 1, y: 9, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -65}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -33.406}
 --- !u!1 &486956023
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,7 +960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1079528384}
   rotateSpeed: 12
-  groundMoveSpeed: 6
+  groundMoveSpeed: 15
   jumpSpeed: 15
   gravity: -9.8
   terminalVelocity: -10
