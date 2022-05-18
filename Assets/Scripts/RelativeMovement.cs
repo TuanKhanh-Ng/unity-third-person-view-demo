@@ -50,8 +50,9 @@ public class RelativeMovement : MonoBehaviour
 
             target.rotation = initialRot;
 
-            Quaternion direction = Quaternion.LookRotation(movement);
-            transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotateSpeed * Time.deltaTime);
+            Vector3 direction = new Vector3(target.forward.x, 0, target.forward.z);
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotateSpeed * Time.deltaTime);
         }
 
         _animator.SetFloat("Speed", movement.sqrMagnitude);
