@@ -17,8 +17,6 @@ public class Managers : MonoBehaviour
         Player = GetComponent<PlayerManager>();
         Inventory = GetComponent<InventoryManager>();
 
-
-
         _startSequence = new List<IGameManager>();
         _startSequence.Add(Player);
         _startSequence.Add(Inventory);
@@ -28,11 +26,37 @@ public class Managers : MonoBehaviour
 
     private IEnumerator StartupManagers()
     {
-        foreach(IGameManager manager in _startSequence)
+        // First call Startup() on every manager
+        foreach (IGameManager manager in _startSequence)
         {
             manager.Startup();
         }
 
         yield return null;
+
+        // Check whether all the managers have started up
+        int numModules = _startSequence.Count;
+        int numReady = 0;
+
+        while (numReady < numModules)
+        {
+            int lastReady = numReady;
+            numReady = 0;
+
+            foreach (IGameManager manager in _startSequence)
+            {
+                if (manager.status == ManagerStatus.Started)
+                {
+                    ++numReady;
+                }
+            }
+
+            if (numReady > lastReady)
+            {
+                Debug.Log("Progress: " + numReady + "/" + numModules);
+            }
+            yield return new WaitForSeconds(1.0f);
+        }
+        Debug.Log("All managers started up");
     }
 }
